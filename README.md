@@ -20,7 +20,7 @@ Once the script executes successfully, you will need to exit `Windows PowerShell
 
 And this should set up everything you need for a fancy prompt. Once the script executes successfully, exist `Windows Terminal` one last time and launch it again and *hopefully* you should have a nice brand new prmopt now.
 
-I recieved some errors, Can't remember if it was during Step 1 or 2
+I recieved some errors, Can't remember if it was during Step 1 or 2   
 I ran both of these
 
 Install-Module PSReadLine
