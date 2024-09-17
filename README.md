@@ -23,4 +23,5 @@ And this should set up everything you need for a fancy prompt. Once the script e
 I recieved some errors, Can't remember if it was during Step 1 or 2
 
 Install-Module PSReadLine
+
 Install-Module PSReadLine -Force
