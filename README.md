@@ -1,4 +1,5 @@
-## My Windows Terminal
+## powershell-terminal
+
 This was forked from https://github.com/ibnYusrat/my-windows-terminal
 
 This repository has two install scripts, i-e `Install_Step1.ps1` and `Install_Step2.ps1`. These scripts will automatically setup everything that needs to be done to get the fancy pants PowerShell Prompt. 
@@ -18,3 +19,7 @@ Once the script executes successfully, you will need to exit `Windows PowerShell
 `./Install_Step2.ps1`
 
 And this should set up everything you need for a fancy prompt. Once the script executes successfully, exist `Windows Terminal` one last time and launch it again and *hopefully* you should have a nice brand new prmopt now.
+
+I recieved some errors, Can't remember if it was during Step 1 or 2
+Install-Module PSReadLine
+Install-Module PSReadLine -Force
