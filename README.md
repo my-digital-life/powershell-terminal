@@ -1,5 +1,5 @@
 ## My Windows Terminal
-This was forked from https://github.com/ibnYusrat/my-linux-setup
+This was forked from https://github.com/ibnYusrat/my-windows-terminal
 
 This repository has two install scripts, i-e `Install_Step1.ps1` and `Install_Step2.ps1`. These scripts will automatically setup everything that needs to be done to get the fancy pants PowerShell Prompt. 
 You don't need to run these scripts with elevated privileges (`Run as Administrator`) but before running the script,
