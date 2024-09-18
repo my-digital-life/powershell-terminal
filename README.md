@@ -27,7 +27,7 @@ Install-Module PSReadLine
 Install-Module PSReadLine -Force   
 
 
-Terminal output from secondary computer   
+## Terminal output from install on on new win 11 Virtual machine   
 PS C:\Users\mydig> Install-Module PSReadLine                                                                                                                                                                                                                                            NuGet provider is required to continue
 PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet provider must be
 available in 'C:\Program Files\PackageManagement\ProviderAssemblies' or
