@@ -44,3 +44,5 @@ WARNING: Version '2.0.0' of module 'PSReadLine' is already installed at 'C:\Prog
 install version '2.3.5', run Install-Module and add the -Force parameter, this command will install version '2.3.5' in side-by-side with
 version '2.0.0'.
 PS C:\Users\mydig> Install-Module PSReadLine -Force
+
+
