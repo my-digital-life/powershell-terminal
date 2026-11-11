@@ -23,6 +23,22 @@ This repository contains my personal PowerShell configuration.
 Open PowerShell as Administrator and run:
 
 ```powershell
-winget install Microsoft.PowerShell
 winget install Git.Git
+winget install Microsoft.PowerShell
 winget install JanDeDobbeleer.OhMyPosh
+Install-Module PSReadLine -Force -SkipPublisherCheck
+
+## Create profile folders:
+
+```powershell
+mkdir "$HOME\Documents\PowerShell" -Force
+mkdir "$HOME\Documents\WindowsPowerShell" -Force
+
+## Copy profile:
+
+```powershell
+Copy-Item `
+"$HOME\powershell-terminal\Microsoft.PowerShell_profile.ps1" `
+"$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" `
+-Force
+
