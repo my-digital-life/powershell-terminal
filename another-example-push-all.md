@@ -1,4 +1,4 @@
-# commit everything that changed in the repository, use:
+# Commit everything that changed in the repository, use:
 
 ```powershell
 git add .
@@ -35,7 +35,7 @@ git push
 git status
 ```
 
-## bCommit all tracked files without git add
+## Commit all tracked files without git add
 
 ```powershell
 git commit -am "Update existing files"
@@ -46,7 +46,6 @@ git commit -am "Update existing files"
 ## Add only Markdown files
 
 ```powershell
-
 git add *.md
 ```
 
