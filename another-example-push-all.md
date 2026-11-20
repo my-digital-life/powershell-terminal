@@ -7,7 +7,7 @@ git add .
 ## Then:
 
 ```powershell
-git commit -m "Describe what changed"
+git commit -m "needed a change"
 ```
 
 ## Then:
@@ -16,7 +16,7 @@ git commit -m "Describe what changed"
 git push
 ```
 
-## another
+## another way
 
 ```powershell
 cd "$HOME\powershell-terminal"
