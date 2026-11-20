@@ -1,0 +1,138 @@
+# Oh My Posh-Kali-Theme -Fix-After-Winget-Upgrade
+
+## Problem
+
+After upgrading Oh My Posh with Winget, the custom Kali prompt stopped working and every PowerShell prompt displayed:
+
+```text
+CONFIG NOT FOUND
+```
+
+The profile was still loading Oh My Posh, but it referenced an old theme file that no longer existed:
+
+```powershell
+C:\Users\mydig\AppData\Local\Programs\oh-my-posh\themes\kali.omp.json
+```
+
+The current user was different (`rem`), and the theme file had been moved or removed during the upgrade.
+
+---
+
+## Symptoms
+
+Prompt showed:
+
+```text
+CONFIG NOT FOUND
+```
+
+Checking the theme path returned:
+
+```powershell
+Get-ChildItem "$env:POSH_THEMES_PATH"
+```
+
+Output:
+
+```text
+Cannot find path ...
+```
+
+---
+
+## Useful Commands
+
+Verify Oh My Posh is installed:
+
+```powershell
+oh-my-posh version
+```
+
+Check the executable location:
+
+```powershell
+(Get-Command oh-my-posh).Source
+```
+
+Display environment variables:
+
+```powershell
+Get-ChildItem Env:POSH*
+```
+
+Show the configured theme path:
+
+```powershell
+$env:POSH_THEMES_PATH
+```
+
+Search for the Kali theme:
+
+```powershell
+Get-ChildItem C:\ -Filter "kali.omp.json" -Recurse -ErrorAction SilentlyContinue
+```
+
+---
+
+## Fix
+
+The Kali theme was found here:
+
+```text
+C:\Users\rem\powershell-terminal\kali.omp.json
+```
+
+Edit the PowerShell profile:
+
+```powershell
+notepad "$HOME\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile-asus.ps1"
+```
+
+Replace the old theme path with:
+
+```powershell
+oh-my-posh init pwsh --config "C:\Users\rem\powershell-terminal\kali.omp.json" | Invoke-Expression
+```
+
+Reload the profile:
+
+```powershell
+. "$HOME\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile-asus.ps1"
+```
+
+Once confirmed working, copy it to the main PowerShell profile:
+
+```powershell
+Copy-Item `
+"$HOME\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile-asus.ps1" `
+"$PROFILE" -Force
+```
+
+Verify profile location:
+
+```powershell
+$PROFILE
+```
+
+---
+
+## Result
+
+The Kali prompt returned successfully:
+
+```text
+┌──(rem㉿asus)-[~]
+└─$
+```
+
+No more:
+
+```text
+CONFIG NOT FOUND
+```
+
+---
+
+## Root Cause
+
+The Winget upgrade left the PowerShell profile pointing to an old Oh My Posh theme path belonging to a different user account. Updating the profile to the correct `kali.omp.json` location restored the prompt.
