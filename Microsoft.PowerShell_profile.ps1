@@ -5,6 +5,7 @@ if (Test-Path $Theme) {
 }
 Set-Alias open explorer.exe
 # Set-Alias cat type
+# test
 Set-Alias grep findstr
 
 if ($PSVersionTable.PSVersion.Major -ge 7) {
