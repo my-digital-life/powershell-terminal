@@ -1,0 +1,11 @@
+winget install ``
+winget install Mozilla.Firefox --silent --accept-package-agreements --accept-source-agreements --disable-interactivity
+winget install MiniTool.PartitionWizard.Free --accept-package-agreements --accept-source-agreements --silent --disable-interactivity
+winget install --id Microsoft.PowerShell.Preview
+winget install --id Microsoft.Sysinternals.Sysmon -e --silent
+winget install -e --id Genymobile.scrcpy
+winget -h
+winget install Git.Git
+winget install JanDeDobbeleer.OhMyPosh
+winget install Microsoft.PowerShell
+winget install 9MZ1SNWT0N5D -s msstore --accept-package-agreements --accept-source-agreements

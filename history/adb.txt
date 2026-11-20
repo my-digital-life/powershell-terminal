@@ -1,0 +1,44 @@
+adb shell /data/app/~~Weh5-X75sqIU93iPQicg3Q==/moe.shizuku.privileged.api-q8uCnbPmYG7nnnmGtVwRJg==/lib/arm64/libshizuku.so
+adb shell 192.168.1.17:37977
+adb devices
+adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh
+adb shell ls /sdcard/Android/data/moe.shizuku.privileged.api/
+adb shell ls /sdcard/Android/data/
+adb connect 192.168.1.204:5555
+scrcpy -S --lock-video-orientation=1--turn-screen-off --stay-awake -m 1024 --tcpip=192.168.1.204:5555
+adb tcpip 5555
+scrcpy --tcpip=192.168.1.17 --turn-screen-off --audio-source=playback --audio-dup -b 16M --audio-bit-rate=256K --disable-screensaver --stay-awake
+adb pair 192.168.1.17
+adb pair 192.168.1.17:5555
+adb shell pm list packages
+adb shell pm list packages | findstr face
+adb shell pm list packages | findstr pixel
+adb shell pm list packages -s
+adb shell pm list packages -s  | findstr face
+adb shell pm list packages -3  | findstr face
+adb shell pm list packages -3  | findstr chrome
+adb shell pm list packages -s  | findstr chrome
+scrcpy --turn-screen-off --audio-source=playback --audio-dup -b 16M --audio-bit-rate=256K --disable-screensaver --stay-awake
+scrcpy --turn-screen-off --audio-source=playback --audio-dup -b 16M --audio-bit-rate=256K --disable-screensaver --stay-awake -s R92X115KKNF
+adb -s 2X115KKNF shell
+adb install firefox.apk -s R92X115KKNF
+adb -s R92X115KKNF install firefox.apk
+adb -s R92X115KKNF tcpip 5555
+adb -s R92X115KKNF  --tcpip=192.168.1.192
+adb -s R92X115KKNF  tcpip=192.168.1.192
+adb connect 192.168.1.192:5555
+adb disconnect 192.168.1.17:5555
+adb disconnect 192.168.1.192:5555
+adb -s 192.168.1.192:5555 shell
+adb -s 192.168.1.192:5555 shell svc power stayon true
+adb -s 192.168.1.192:5555 shell input keyevent KEYCODE_WAKEUP
+adb -s 192.168.1.192:5555 shell settings put system screen_off_timeout 1800000
+adb -s 192.168.1.192:5555 shell input keyevent 224
+adb devices # rem 192.168.1.10
+adb kill-server
+adb devices # micro 192.168.1.10
+adb -s R92X115KKNF tcpip 5555 # micro 192.168.1.10
+adb -s R92X115KKNF shell ip addr show wlan0 # micro 192.168.1.10
+scrcpy ``
+scrcpy --turn-screen-off --audio-source=playback --audio-dup -b 16M --audio-bit-rate=256K --disable-screensaver --stay-awake -s 1B291FDF6004KM
+adb -s R92X115KKNF tcpip 5555 # samsung micro 192.168.1.10

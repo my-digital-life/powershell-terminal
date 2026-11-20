@@ -1,10 +1,17 @@
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kali.omp.json" | Invoke-Expression
-# # not this - oh-my-posh init pwsh --config 'C:\Users\mydig\AppData\Local\Programs\oh-my-posh\themes\hunk.omp.json' | Invoke-Expression
+$Theme = "$HOME\powershell-terminal\kali.omp.json"
+
+if (Test-Path $Theme) {
+    oh-my-posh init pwsh --config $Theme | Invoke-Expression
+}
 Set-Alias open explorer.exe
 # Set-Alias cat type
 Set-Alias grep findstr
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
+
+if ($PSVersionTable.PSVersion.Major -ge 7) {
+    Set-PSReadLineOption -PredictionSource History
+    Set-PSReadLineOption -PredictionViewStyle ListView
+}
+
 Set-PSReadLineOption -EditMode Windows
 function ll {
     Get-ChildItem -Force |

@@ -1,0 +1,40 @@
+Start-Process ms-settings:startupapps
+Start-Process ms-settings:appsfeatures
+Start-Process ms-settings:display-advancedgraphics
+Get-CimInstance Win32_NetworkAdapter |`
+Get-PnpDevice -Class Net |`
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+Get-SmbShare
+Get-SmbShare | Where-Object { $_.Special -eq $false }
+Get-SmbSession | Select-Object ClientComputerName, Username, NumOpens
+Get-SmbOpenFile | Select-Object ClientComputerName, ClientUserName, Path
+Get-PhysicalDisk
+Remove-Item -Recurse -Force S:\EFI\kali
+Get-ChildItem S:\
+Get-ChildItem S:\EFI
+Get-WmiObject -Namespace root\wmi -Class WmiBootConfiguration
+Get-Disk
+Get-Partition -DiskNumber 0
+Get-Volume
+Get-ChildItem -Path "C:\Users", "C:\Program Files" -Filter "ollama.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName
+Get-Process -Name "ollama" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Path
+Get-ChildItem -Path "C:\*" -Filter "ollama.exe" -Recurse -Force -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName
+Test-Path "C:\Users\rem\AppData\Local\Programs\Ollama\ollama.exe"
+Test-NetConnection -ComputerName 192.168.1.155 -Port 445
+Get-History | Where-Object { $_.CommandLine -match 'winget install' }
+Get-History |`
+get-History | Where-Object { $_.CommandLine -match 'scrcpy' }
+Get-ChildItem "$env:POSH_THEMES_PATH" | Where-Object {$_.Name -like "*kali*"}
+Get-Content $PROFILE
+Get-Command oh-my-posh | Select-Object Source
+Get-ChildItem "C:\Program Files (x86)\oh-my-posh\themes" -ErrorAction SilentlyContinue
+Get-ChildItem C:\ -Filter kali.omp.json -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem "$env:LOCALAPPDATA\Programs\oh-my-posh\themes" -Filter *.omp.json
+Get-Module PSReadLine -ListAvailable | Sort-Object Version -Descending
+Get-PSReadLineOption
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+Get-ChildItem $HOME\Documents\PowerShell
+Get-History | Select-Object -Last 30 | ForEach-Object {$_.CommandLine} | Set-Clipboard
+Get-History | Select-Object -Last 130 | ForEach-Object {$_.CommandLine} | Set-Clipboard
+Get-History | Select-Object -Last 130 | ForEach-Object {$_.CommandLine} | Set-Clipboard # worked all

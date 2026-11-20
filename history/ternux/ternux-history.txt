@@ -1,0 +1,160 @@
+Termux
+Windows PowerShell 5.1
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Loading personal and system profiles took 1071ms.
+┌──(Scott㉿micro)-[~]                                                                                              0ms  
+└─$ ssh -p 8022 u0_a248@192.168.1.192
+u0_a248@192.168.1.192's password:
+Welcome to Termux!
+
+Docs:       https://termux.dev/docs
+Donate:     https://termux.dev/donate
+Community:  https://termux.dev/community
+
+Working with packages:
+
+ - Search:  pkg search <query>
+ - Install: pkg install <package>
+ - Upgrade: pkg upgrade
+
+Subscribing to additional repositories:
+
+ - Root:    pkg install root-repo
+ - X11:     pkg install x11-repo
+
+For fixing any repository issues,
+try 'termux-change-repo' command.
+
+Report issues at https://termux.dev/issues
+~ $ ls
+android-report.sh   deviceinfo.sh   network-report.sh            rootcheck.sh       samsung-report.txt
+android-report.txt  deviceinfo.txt  network-report.txt           rootcheck.txt
+boot-report.txt     his.txt         packages-before-debloat.txt  samsung-report.sh
+~ $ cat his.txt
+    1  apt update
+    2  apt -y upgrade
+    3  reboot
+    4  exit
+    5  ip addr
+    6  pkg update
+    7  pkginstall iproote2
+    8  pkg install iproute2
+    9  pkg install root-repo
+   10  pkg install x11-repo
+   11  ip -addr
+   12  ip -help
+   13  ip -address
+   14  ip address
+   15  ifconfig
+   16  pkg install openssh curl git zsh wget
+   17  ipconfig | grep 192
+   18  ifconfig | grep 192
+   19  sv-enable sshd
+   20  pkg install termux-serveces
+   21  pkg install termux-services
+   22  sv-enable sshd
+   23  ifconfig | grep 192
+   24  whoami
+   25  pkg install tmux
+   26  ip addr
+   27  ipconfig
+   28  pkg update && pkg upgrade
+   29  pkg install net-tools
+   30  ip sddr
+   31  itconfig
+   32  whoami
+   33  pkg install openssh curl wget nano
+   34  whoami
+   35  echo $PATH
+   36  uname -a
+   37  pwd
+   38  which pkg
+   39  which apt~
+   40  echo $PATH
+   41  which apt~
+   42  pkg install which
+   43  which apt~
+   44  pwd
+   45  which pkg
+   46  pkg install net-tools
+   47  pkg install net-tools
+   48  ifconfig
+   49  pkg search wireless
+   50  pkg install wireless-tools
+   51  ip route
+   52  getprop dhcp.wlan0.ipaddress
+   53  getprop | grep wlan
+   54  tmux set -g set-clipboard on
+   55  echo "bind 'set enable-bracketed-paste off'" >> ~/.bashrc
+   56  pkg install openss
+   57  pkg search openssh
+   58  pkg install openssh
+   59  passwd
+   60  sshd
+   61  ss -tlnp | grep sshd
+   62  exit
+   63  nano deviceinfo.sh
+   64  chmod +x deviceinfo.sh
+   65  less ~/deviceinfo.txt
+   66  ll
+   67  ls
+   68  pwd
+   69  ./deviceinfo.sh
+   70  cat deviceinfo.txt
+   71  which su
+   72  su
+   73  id
+   74  getprop ro.boot.flash.locked
+   75  getprop ro.boot.vbmeta.device_state
+   76  getprop ro.oem_unlock_supported
+   77  nano rootcheck.sh
+   78  chmod +x rootcheck.sh
+   79  ./rootcheck.sh | tee rootcheck.txt
+   80  ls
+   81  cat rootcheck.txt
+   82  adb shell getprop ro.product.cpu.abi
+   83  pkg install android-tools
+   84  adb shell getprop ro.product.cpu.abi
+   85  adb shell dumpsys battery
+   86  adb shell ip addr show wlan0
+   87  adb shell getprop ro.boot.flash.locked
+   88  adb shell getprop ro.boot.vbmeta.device_state
+   89  nano android-report.sh
+   90  chmod +x android-report.sh
+   91  ./android-report.sh
+   92  nano network-report.sh
+   93  chmod +x network-report.sh
+   94  ./network-report.sh | tee network-report.txt
+   95  tmux new -s phone
+   96  pkg update && pkg upgrade
+   97  pkg install root-repo
+   98  pkg install x11-repo
+   99  pkg update && pkg upgrade
+  100  exit
+  101  ls
+  102  cd Downloads
+  103  cd /Downloads
+  104  pm list packages | grep samsung
+  105  whoami
+  106  uname -a
+  107  pwd
+  108  whoami
+  109  pm list packages | head
+  110  cmd package list packages | head
+  111  cmd package list packages | grep samsung
+  112  cmd package list packages | grep -E "google|facebook|meta|microsoft"
+  113  cmd package list packages > ~/packages-before-debloat.txt
+  114  cmd package uninstall --user 0  com.samsung.android.app.watchmanager
+  115  cmd package uninstall --user 0  com.samsung.android.scloud
+  116  am start -n com.termux/.HomeActivity
+  117  sshd
+  118  ss -tln | grep 8022
+  119  sshd
+  120  ss -tln | grep 8022
+  121  pkill sshd
+  122  sshd
+  123  ps -A | grep sshd
+  124  history
+  125  history ? his.txt
+  126  history > his.txt

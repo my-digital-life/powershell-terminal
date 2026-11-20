@@ -1,0 +1,3 @@
+ipconfig /all
+ipconfig /all # micro 1.10
+ipconfig

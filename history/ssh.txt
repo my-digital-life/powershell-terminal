@@ -1,0 +1,14 @@
+ssh root@192.168.1.3
+ssh rem@192.168.1.9
+ssh my.digital.life@outlook.com@192.168.1.9
+ssh pi21@192.168.1.20
+ssh pi20@192.168.1.20
+ssh server@192.168.1.50
+ssh pi21@192.168.1.21
+ssh ub@192.168.1.155
+ssh dell@192.168.1.14
+ssh Scott@192.168.1.14
+ssh ub@192.168.1.165
+ssh Galaxy-A05@192.168.1.192
+ssh u0_a248@192.168.1.192
+ssh -p 8022 u0_a248@192.168.1.192
