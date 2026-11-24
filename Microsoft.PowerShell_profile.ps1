@@ -1,26 +1,71 @@
+# =========================
+# Oh My Posh - Kali Theme
+# =========================
+
 $Theme = "$HOME\powershell-terminal\kali.omp.json"
 
 if (Test-Path $Theme) {
     oh-my-posh init pwsh --config $Theme | Invoke-Expression
 }
-Set-Alias open explorer.exe
-# Set-Alias cat type
-# test
-Set-Alias grep findstr
 
-if ($PSVersionTable.PSVersion.Major -ge 7) {
+# =========================
+# Aliases
+# =========================
+
+Set-Alias open explorer.exe
+Set-Alias grep findstr
+Set-Alias ip ip-h
+
+# =========================
+# PSReadLine
+# =========================
+
+if (Get-Module -ListAvailable PSReadLine) {
+
+    Set-PSReadLineOption -EditMode Windows
+
+    # Command history
+    Set-PSReadLineOption -MaximumHistoryCount 10000
+    Set-PSReadLineOption -HistorySaveStyle SaveIncrementally
+    Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+
+    # Predictions
     Set-PSReadLineOption -PredictionSource History
     Set-PSReadLineOption -PredictionViewStyle ListView
+
+    # Up/Down arrows search history beginning with current text
+    Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+    Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 }
 
-Set-PSReadLineOption -EditMode Windows
+# =========================
+# Functions
+# =========================
+
 function ll {
     Get-ChildItem -Force |
-    Select-Object Name,
-                  @{Name="Size";Expression={ if ($_.PSIsContainer) {"<DIR>"} else {"{0:N0}" -f $_.Length} }},
-                  @{Name="Modified";Expression={$_.LastWriteTime.ToString("yyyy-MM-dd HH:mm")}} |
-    Format-Table -AutoSize
+        Select-Object `
+            Name,
+            @{
+                Name = "Size"
+                Expression = {
+                    if ($_.PSIsContainer) {
+                        "<DIR>"
+                    }
+                    else {
+                        "{0:N0}" -f $_.Length
+                    }
+                }
+            },
+            @{
+                Name = "Modified"
+                Expression = {
+                    $_.LastWriteTime.ToString("yyyy-MM-dd HH:mm")
+                }
+            } |
+        Format-Table -AutoSize
 }
+
 function ip-h {
     ipconfig /all |
         findstr /R `
@@ -29,9 +74,17 @@ function ip-h {
             /C:"169\.254" `
             /C:"172\." `
             /C:"DNS Servers" `
-            /C:"^[ ]\+[0-9][0-9]*\."
+            /C:"^[ ]*[0-9][0-9]*\."
 }
 
-Set-Alias ip ip-h
+function la {
+    Get-ChildItem -Force
+}
 
+function reload-profile {
+    . $PROFILE
+}
 
+function edit-profile {
+    notepad $PROFILE
+}
